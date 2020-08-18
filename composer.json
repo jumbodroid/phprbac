@@ -30,7 +30,8 @@
     "psr-4": {
       "Jumbodroid\\PhpRbac\\": "src",
       "Jumbodroid\\Library\\": "src/Library"
-    }
+    },
+    "files": ["src/Psr7/funclude.php"]
   },
   "autoload-dev": {
     "psr-4": {
