@@ -32,6 +32,14 @@ class PhpRbacServiceProvider extends ServiceProvider
         |--------------------------------------------------------------------------
         */
         $this->configPublisher();
+
+        /*
+        |
+        |--------------------------------------------------------------------------
+        | Publish the MIgration file from the Package to the App directory
+        |--------------------------------------------------------------------------
+        */
+        $this->migrationPublisher();
     }
 
     /**
