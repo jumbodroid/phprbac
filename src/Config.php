@@ -16,7 +16,7 @@ class Config
     /**
      * Config file name
      */
-    CONST CONFIG_FILE_NAME = "httpclient";
+    CONST CONFIG_FILE_NAME = "phprbac";
 
     /**
      * @var  \Illuminate\Config\Repository
