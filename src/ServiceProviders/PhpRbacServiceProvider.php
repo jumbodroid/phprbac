@@ -83,6 +83,17 @@ class PhpRbacServiceProvider extends ServiceProvider
     }
 
     /**
+     * Publish the Migration file from the Package to the App directory
+     */
+    private function migrationPublisher()
+    {
+        // When users execute Laravel's vendor:publish command, the migration file will be copied to the specified location
+        $this->publishes([
+            __DIR__ . '/Migrations/2020_08_18_133916_create_php_rbac_tables.php' => database_path('migrations/2020_08_18_133916_create_php_rbac_tables.php'),
+        ]);
+    }
+
+    /**
      * Facades Binding
      */
     private function facadeBindings()

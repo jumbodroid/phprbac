@@ -5,7 +5,6 @@ namespace Jumbodroid\PhpRbac;
 use Jumbodroid\PhpRbac\Contracts\Rbac as ContractsRbac;
 use PhpRbac\Rbac as PhpRbacRbac;
 use \Jf;
-use Illuminate\Database\Connector\ConnectionFactory;
 
 class Rbac extends PhpRbacRbac implements ContractsRbac
 {
@@ -13,21 +12,13 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
 
     private function __construct($unit_test = '')
     {
-        // if ((string) $unit_test === 'unit_test') {
-        //     require_once dirname(dirname(__DIR__)) . '/tests/database/database.config';
-        // } else {
-        //     require_once dirname(dirname(__DIR__)) . '/database/database.config';
-        // }
-
-        $con = new ConnectionFactory();
-        exit(var_dump($con));
-
-        // $host="localhost";
-        // $user="root";
-        // $pass="";
-        // $dbname="phprbac";
-        // $adapter="pdo_mysql";
-        // $tablePrefix = "rbac_";
+        $config = new Config();
+        $host = $config->get('host');
+        $user = $config->get('user');
+        $pass = $config->get('pass');
+        $dbname = $config->get('dbname');
+        $adapter = $config->get('adapter');
+        $tablePrefix = $config->get('tablePrefix');
 
         require_once dirname(__DIR__, 3).'/owasp/phprbac/PhpRbac/core/lib/Jf.php';
 

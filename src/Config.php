@@ -50,7 +50,6 @@ class Config
     {
         // the config file of the package directory
         $config_path = __DIR__ . '/Config';
-        // $config_path = require_once dirname(__DIR__, 4) . '/config/app.php';
 
         // check if this laravel specific function `config_path()` exist (means this package is used inside
         // a laravel framework). If so then load then try to load the laravel config file if it exist.
