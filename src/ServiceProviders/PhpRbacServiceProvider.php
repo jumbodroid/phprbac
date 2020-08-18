@@ -3,10 +3,8 @@
 namespace Jumbodroid\PhpRbac\ServiceProviders;
 
 use Illuminate\Support\ServiceProvider;
-use Jumbodroid\PhpRbac\Contracts\SampleInterface;
-use Jumbodroid\PhpRbac\Facades\SampleFacadeAccessor;
 use Jumbodroid\PhpRbac\Rbac;
-use Jumbodroid\PhpRbac\Sample;
+use Jumbodroid\PhpRbac\Contracts\Rbac as RbacInterface;
 
 /**
  * Class RbacServiceProvider
@@ -70,12 +68,7 @@ class PhpRbacServiceProvider extends ServiceProvider
      */
     private function implementationBindings()
     {
-        $this->app->bind(
-            SampleInterface::class,
-            Sample::class
-        );
-
-        $this->app->singleton('rbac', Rbac::class);
+        $this->app->singleton(RbacInterface::class, Rbac::class);
     }
 
     /**
@@ -94,16 +87,7 @@ class PhpRbacServiceProvider extends ServiceProvider
      */
     private function facadeBindings()
     {
-        // Register 'phprbac.say' instance container
-        $this->app['phprbac.sample'] = $this->app->share(function ($app) {
-            return $app->make(Sample::class);
-        });
-
-        // Register 'Sample' Alias, So users don't have to add the Alias to the 'app/config/app.php'
-        $this->app->booting(function () {
-            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Sample', SampleFacadeAccessor::class);
-        });
+        // none
     }
 
     /**

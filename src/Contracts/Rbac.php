@@ -3,11 +3,11 @@
 namespace Jumbodroid\PhpRbac\Contracts;
 
 /**
- * Interface  SampleInterface
+ * Interface  Rbac
  *
  * @author Alois Odhiambo <rayalois22@gmail.com>
  */
-interface SampleInterface
+interface Rbac
 {
 
 }

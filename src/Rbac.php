@@ -2,9 +2,10 @@
 
 namespace Jumbodroid\PhpRbac;
 
+use Jumbodroid\PhpRbac\Contracts\Rbac as ContractsRbac;
 use PhpRbac\Rbac as PhpRbacRbac;
 
-final class Rbac extends PhpRbacRbac
+class Rbac extends PhpRbacRbac implements ContractsRbac
 {
     static $rbac = null;
 
