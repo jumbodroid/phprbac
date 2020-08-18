@@ -20,7 +20,7 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
         $adapter = $config->get('adapter');
         $tablePrefix = $config->get('tablePrefix');
 
-        require_once dirname(__DIR__, 3).'/owasp/phprbac/PhpRbac/src/core/lib/Jf.php';
+        require_once dirname(__DIR__, 3).'/owasp/phprbac/PhpRbac/src/PhpRbac/core/lib/Jf.php';
 
         $this->Permissions = Jf::$Rbac->Permissions;
         $this->Roles = Jf::$Rbac->Roles;
