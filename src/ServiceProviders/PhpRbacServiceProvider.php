@@ -78,7 +78,7 @@ class PhpRbacServiceProvider extends ServiceProvider
     {
         // When users execute Laravel's vendor:publish command, the config file will be copied to the specified location
         $this->publishes([
-            __DIR__ . '/Config/phprbac.php' => config_path('phprbac.php'),
+            dirname(__DIR__) . '/Config/phprbac.php' => config_path('phprbac.php'),
         ]);
     }
 
@@ -89,7 +89,7 @@ class PhpRbacServiceProvider extends ServiceProvider
     {
         // When users execute Laravel's vendor:publish command, the migration file will be copied to the specified location
         $this->publishes([
-            __DIR__ . '/Migrations/2020_08_18_133916_create_php_rbac_tables.php' => database_path('migrations/2020_08_18_133916_create_php_rbac_tables.php'),
+            dirname(__DIR__) . '/Migrations/2020_08_18_133916_create_php_rbac_tables.php' => database_path('migrations/2020_08_18_133916_create_php_rbac_tables.php'),
         ]);
     }
 
