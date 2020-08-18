@@ -1,6 +1,6 @@
 {
   "name": "jumbodroid/phprbac",
-  "description": "PHP RBAC is a wrapper around OWASP/rbac to support the Laravel framework",
+  "description": "PHP RBAC is a wrapper around the OWASP/rbac package to support the Laravel framework",
   "license": "MIT",
   "keywords": [
     "RBAC",
@@ -18,7 +18,6 @@
   ],
   "require": {
     "php": "^7.2.5",
-    "ext-curl": "*",
     "illuminate/config": "7.11.*",
     "owasp/phprbac": "^2.0"
   },
@@ -35,7 +34,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Rayalois22\\HttpClient\\Tests\\": "tests"
+      "Jumbodroid\\PhpRbac\\Tests\\": "tests"
     }
   },
   "scripts": {
