@@ -41,4 +41,19 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
     {
         return call_user_func_array(array(self::getInstance(), $method), $arguments);
     }
+
+    public static function Roles()
+    {
+        return self::getInstance()->Roles;
+    }
+
+    public static function Permissions()
+    {
+        return self::getInstance()->Permissions;
+    }
+
+    public static function Users()
+    {
+        return self::getInstance()->Users;
+    }
 }
