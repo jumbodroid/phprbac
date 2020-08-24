@@ -33,7 +33,7 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
         {
             self::$rbac = new static();
         }
-exit(var_dump(self::$rbac));
+
         return self::$rbac;
     }
 
