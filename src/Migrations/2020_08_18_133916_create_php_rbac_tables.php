@@ -20,7 +20,7 @@ class CreatePhpRbacTables extends Migration
 
         $rbacTables = array_map(function($i) use($prefix) {
             return $prefix.$i;
-        }, explode(',', 'permissions,roles,rolepermissions'));
+        }, explode(',', 'permissions,roles,rolepermissions,userroles'));
 
         try {
             $dbname=DB::connection()->getDatabaseName();
@@ -36,15 +36,14 @@ class CreatePhpRbacTables extends Migration
                     }
                 }
 
-                // $this->upRolesTable($prefix);
-                // $this->upPermissionsTable($prefix);
-                // $this->upRolePermissionsTable($prefix);
-                // $this->upUserRolesTable($prefix);
-                // $this->initRbacTables($prefix);
-                throw new Exception("Success");
+                $this->upRolesTable($prefix);
+                $this->upPermissionsTable($prefix);
+                $this->upRolePermissionsTable($prefix);
+                $this->upUserRolesTable($prefix);
+                $this->initRbacTables($prefix);
             }
         } catch(Exception $e) {
-            throw $e;
+            // do nothing
         }
     }
 
