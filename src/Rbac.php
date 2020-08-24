@@ -27,7 +27,7 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
         $this->Users = Jf::$Rbac->Users;
     }
 
-    private static function getInstance()
+    public static function getInstance()
     {
         if(self::$rbac == null)
         {
