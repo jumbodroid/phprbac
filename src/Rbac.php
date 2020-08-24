@@ -10,9 +10,9 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
 {
     static $rbac = null;
 
-    const Roles = self::roles();
-    const Permissions = self::permissions();
-    const Users = self::users();
+    static const Roles = self::roles();
+    static const Permissions = self::permissions();
+    static const Users = self::users();
 
     private function __construct($unit_test = '')
     {
