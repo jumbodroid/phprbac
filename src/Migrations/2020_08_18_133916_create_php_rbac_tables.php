@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CreatePhpRbacTables extends Migration
 {
     private $rbacTablePrefix = 'rbac_';
+
     /**
      * Run the migrations.
      *
@@ -15,12 +16,36 @@ class CreatePhpRbacTables extends Migration
      */
     public function up()
     {
-        $prefix = $this->rbacTablePrefix;
-        $this->upRolesTable($prefix);
-        $this->upPermissionsTable($prefix);
-        $this->upRolePermissionsTable($prefix);
-        $this->upUserRolesTable($prefix);
-        $this->initRbacTables($prefix);
+        $prefix = config('phprbac.tablePrefix') ?? $this->rbacTablePrefix;
+
+        $rbacTables = array_map(function($i) use($prefix) {
+            return $prefix.$i;
+        }, explode(',', 'permissions,roles,rolepermissions'));
+
+        try {
+            $dbname=DB::connection()->getDatabaseName();
+            $pdo=DB::connection()->getPDO();
+            $stm=$pdo->query("SHOW TABLES FROM $dbname");
+            $rs=$stm->fetchAll(PDO::FETCH_COLUMN);
+            if(count($rs) > 1)
+            {
+                foreach ($rs as $table) {
+                    if(in_array($table, $rbacTables))
+                    {
+                        throw new \Exception("PhpRbac seems to have been installed already!");
+                    }
+                }
+
+                // $this->upRolesTable($prefix);
+                // $this->upPermissionsTable($prefix);
+                // $this->upRolePermissionsTable($prefix);
+                // $this->upUserRolesTable($prefix);
+                // $this->initRbacTables($prefix);
+                throw new Exception("Success");
+            }
+        } catch(Exception $e) {
+            throw $e;
+        }
     }
 
     /**
