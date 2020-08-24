@@ -10,6 +10,10 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
 {
     static $rbac = null;
 
+    const Roles = self::roles();
+    const Permissions = self::permissions();
+    const Users = self::users();
+
     private function __construct($unit_test = '')
     {
         $config = new Config();
@@ -42,17 +46,17 @@ class Rbac extends PhpRbacRbac implements ContractsRbac
         return call_user_func_array(array(self::getInstance(), $method), $arguments);
     }
 
-    public static function Roles()
+    public static function roles()
     {
         return self::getInstance()->Roles;
     }
 
-    public static function Permissions()
+    public static function permissions()
     {
         return self::getInstance()->Permissions;
     }
 
-    public static function Users()
+    public static function users()
     {
         return self::getInstance()->Users;
     }
