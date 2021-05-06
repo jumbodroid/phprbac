@@ -124,7 +124,7 @@ class PhpRbacServiceProvider extends ServiceProvider
      */
     private function serviceProviders()
     {
-        // $this->app->register('...\...\...');
+        $this->app->register(PhpRbacServiceProvider::class);
     }
 
 }
