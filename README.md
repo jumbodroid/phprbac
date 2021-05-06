@@ -11,6 +11,13 @@ Run **php artisan vendor:publish --provider="Jumbodroid\PhpRbac\ServiceProviders
 
 # Usage  
 
+The complete documentation can be found at [phprbac.net](http://phprbac.net/api.php "The PHP-RBAC website").
+Just replace:  
+1. `Rbac->{Permissions}` with `Rbac->permissions()`  
+2. `Rbac->{Roles}` with `Rbac->roles()`  
+3. `Rbac->{Users}` with `Rbac->users()`  
+To get an instance of the Rbac class, use `Rbac->getInstance()`  
+
 ## Roles  
 
 1. Create new role  
@@ -19,9 +26,9 @@ $role_id = Rbac::roles()->add($title, $description);
 $role_id = Rbac::roles()->add($title, $description, $parent_id);  
 ```  
 
-2. Find role by ID  
+2. Find role title  
 ```php
-$role = Role::where('ID', $role_id)->first();
+$role = Rbac::roles()->getTitle($role_id);
 ```  
 
 3. Find list of permissions assigned to a given role  
