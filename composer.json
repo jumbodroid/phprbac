@@ -43,6 +43,11 @@
   "extra": {
     "branch-alias": {
       "dev-master": "2.0-dev"
+    },
+    "laravel": {
+        "providers": [
+            "Jumbodroid\\PhpRbac\\ServiceProviders\\PhpRbacServiceProvider"
+        ]
     }
   },
   "minimum-stability": "stable"

@@ -88,6 +88,8 @@ class PhpRbacServiceProvider extends ServiceProvider
         $this->publishes([
             dirname(__DIR__) . '/Config/phprbac.php' => config_path('phprbac.php'),
         ]);
+
+        $this->mergeConfigFrom(dirname(__DIR__) . '/Config/phprbac.php', 'phprbac');
     }
 
     /**
@@ -124,7 +126,7 @@ class PhpRbacServiceProvider extends ServiceProvider
      */
     private function serviceProviders()
     {
-        $this->app->register(PhpRbacServiceProvider::class);
+        //
     }
 
 }
